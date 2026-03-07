@@ -7,10 +7,12 @@ public class TimerManager : MonoBehaviour
     [SerializeField] private Slider timerBar;
     [SerializeField] private float StartingTime;
 
+    private float speedMultiplier;
     private float currentTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        speedMultiplier = GameManager.Instance.speedMultipler;
         currentTime = StartingTime;
     }
 
@@ -23,7 +25,7 @@ public class TimerManager : MonoBehaviour
 
         if(currentTime <= 0)
         {
-            //Call the you lose function
+            GameManager.Instance.EndMinigame(false, 0);
         }
     }
 }
