@@ -12,8 +12,12 @@ public class PlayerManager : MonoBehaviour
     public Vector3 playerPosition;
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        bool playerManagerHasBeenMade = Instance != null;
+        bool thisPlayerManagerIsNotItself = Instance != this;
+
+        if (playerManagerHasBeenMade && thisPlayerManagerIsNotItself)
         {
+            
             Destroy(transform.root.gameObject);
             return;
         }

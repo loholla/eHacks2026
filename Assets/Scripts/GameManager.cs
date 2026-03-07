@@ -18,7 +18,10 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance != null && Instance != this)
+        bool instanceHasBeenMade = Instance != null;
+        bool thisInstanceIsNotItself = Instance != this;
+
+        if (instanceHasBeenMade && thisInstanceIsNotItself)
         {
             Destroy(transform.root.gameObject);
             return;
@@ -84,7 +87,7 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Minigame ended");
 
-        SceneManager.LoadScene("TransitionScene");
+        SceneManager.LoadScene("TransitionScene", LoadSceneMode.Additive);
     }
 
     public async void GameOver()

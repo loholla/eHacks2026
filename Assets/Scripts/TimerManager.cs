@@ -9,7 +9,7 @@ public class TimerManager : MonoBehaviour
 
     private float speedMultiplier;
     private float currentTime;
-    [SerializeField] private bool paused = false;
+    [SerializeField] private bool timerIsPaused = false;
     [SerializeField] private Minigame minigame;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,21 +19,23 @@ public class TimerManager : MonoBehaviour
         currentTime = StartingTime;
         minigame = GetComponentInParent<Minigame>();
 
-        if (timerBar != null) timerBar.maxValue = 1f;
+        if (timerBar != null) 
+        {
+            timerBar.maxValue = 1f;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         // Debug.Log("Timer at: " + Mathf.RoundToInt(currentTime));
-        if (paused) 
+        if (timerIsPaused) 
         {
             Debug.Log("Timer Paused");
             return;
         }
 
-        timerBar.value = currentTime/StartingTime;
-
+        timerBar.value = currentTime / StartingTime;
         currentTime -= Time.deltaTime;
 
         if (currentTime <= 0f)
@@ -44,5 +46,20 @@ public class TimerManager : MonoBehaviour
         {
             //Call the you lose function
         }
+    }
+
+    void TimeExpired()
+    {
+        enabled = false;
+
+        if (minigame != null) 
+        {
+            minigame.Timeout();
+        }
+    }
+
+    public void PauseTimer()
+    {
+        enabled = false;
     }
 }
