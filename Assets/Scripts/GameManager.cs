@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
-using NUnit.Framework;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,7 +10,7 @@ public class GameManager : MonoBehaviour
     [Header("Mini Game Information")]
     public List<string> minigameScenes;
     [SerializeField] private string currentMinigame;
-    public float speedMultipler;
+    public float speedMultipler = 1f;
 
     [Header("Player Stats")]
     public int playerHealth = 3;
@@ -19,14 +18,23 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance != null && Instance != this)
+        bool instanceHasBeenMade = Instance != null;
+        bool thisInstanceIsNotItself = Instance != this;
+
+        if (instanceHasBeenMade && thisInstanceIsNotItself)
         {
-            Destroy(gameObject);
+            Destroy(transform.root.gameObject);
             return;
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(transform.root.gameObject);
+    }
+
+    void Start()
+    {
+        Debug.Log("Starting Game");
+        SceneManager.LoadSceneAsync("TransitionScene", LoadSceneMode.Additive);
     }
 
     public void AddScore(int amount)
@@ -46,39 +54,45 @@ public class GameManager : MonoBehaviour
 
     public async void StartNextMiniGame()
     {
-        if (!string.IsNullOrEmpty(currentMinigame))
-        {
-            await SceneManager.UnloadSceneAsync(currentMinigame);
-        }
-
         int index = Random.Range(0, minigameScenes.Count);
         currentMinigame = minigameScenes[index];
+
+        Debug.Log("Loading minigame: " + currentMinigame);
 
         await SceneManager.LoadSceneAsync(currentMinigame, LoadSceneMode.Additive);
     }
 
     public async void EndMinigame(bool result, int score)
     {
+        Debug.Log("EndMinigame() called");
         if (result)
         {
-            Instance.AddScore(score);
+            AddScore(score);
         }
         else
         {
-            Instance.DamagePlayer(1);
+            DamagePlayer(1);
             if (playerHealth == 0)
             {
                 GameOver();
+                return;
             }
         }
 
-        await SceneManager.UnloadSceneAsync(currentMinigame);
+        if (!string.IsNullOrEmpty(currentMinigame))
+        {
+            await SceneManager.UnloadSceneAsync(currentMinigame);
+            currentMinigame = "";
+        }
 
-        SceneManager.LoadScene("TransitionScene");
+        Debug.Log("Minigame ended");
+
+        SceneManager.LoadScene("TransitionScene", LoadSceneMode.Additive);
     }
 
     public async void GameOver()
     {
         // Go to game over and leader board scene
     }
+
 }
