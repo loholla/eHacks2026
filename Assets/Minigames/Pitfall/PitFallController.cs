@@ -35,14 +35,14 @@ public class PitFallController : MonoBehaviour
         {
             int temp = answerCardNums[i];
             if (temp != -1){
-                answerDefinitions.Add(currentDeck[temp].definition);
+                answerDefinitions.Add(currentDeck[temp].word);
             } else
             {
                 answerDefinitions.Add("");
             }
         }
-        
-        Question.text = currentDeck[answerCardNums[Random.Range(0,answerCardNums.Count)]].word;
+
+        Question.text = currentDeck[answerCardNums[Random.Range(0,answerCardNums.Count)]].definition;
         Answer1.text = answerDefinitions[0];
         Answer2.text = answerDefinitions[1];
         Answer3.text = answerDefinitions[2];
