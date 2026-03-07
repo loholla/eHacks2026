@@ -82,7 +82,7 @@ public class MiniGame_Test : Minigame
             for (int j = 0; j < 2; j++)
             {
                 Vector3 pos = center + new Vector3((i - 0.5f) * spacing, (j - 0.5f) * spacing, 0);
-                GameObject cube = Instantiate(cubePrefab, pos, Quaternion.identity);
+                GameObject cube = Instantiate(cubePrefab, pos, Quaternion.identity, transform);
                 cube.transform.localScale = Vector3.one;
 
                 if (i == greenX && j == greenY)
