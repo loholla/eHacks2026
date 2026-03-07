@@ -5,7 +5,9 @@ public class Minigame : MonoBehaviour
 {
     [SerializeField] protected int baseScore = 3000;
     [SerializeField] protected int calculatedScore;
-    [SerializeField] private int scoreLosePerSecound = 150;
+    [SerializeField] private int scoreLosePerSecound = 250;
+
+    
     
     protected bool gameEnded = false;
     private TimerManager timer;
