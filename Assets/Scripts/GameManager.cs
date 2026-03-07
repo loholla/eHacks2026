@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
+using NUnit.Framework;
 
 public class GameManager : MonoBehaviour
 {
@@ -55,10 +57,28 @@ public class GameManager : MonoBehaviour
         await SceneManager.LoadSceneAsync(currentMinigame, LoadSceneMode.Additive);
     }
 
-    public async void EndMinigame()
+    public async void EndMinigame(bool result, int score)
     {
+        if (result)
+        {
+            Instance.AddScore(score);
+        }
+        else
+        {
+            Instance.DamagePlayer(1);
+            if (playerHealth == 0)
+            {
+                GameOver();
+            }
+        }
+
         await SceneManager.UnloadSceneAsync(currentMinigame);
 
         SceneManager.LoadScene("TransitionScene");
+    }
+
+    public async void GameOver()
+    {
+        // Go to game over and leader board scene
     }
 }
