@@ -28,7 +28,14 @@ public class PlayerManager : MonoBehaviour
 
         controls.Player.LeftClick.performed +=  ctx => OnActionPressed?.Invoke("LeftClick");
         controls.Player.RightClick.performed += ctx => OnActionPressed?.Invoke("RightClick");
-
+        controls.Player.WalkUp.performed += ctx => OnActionPressed?.Invoke("WalkUpD");
+        controls.Player.WalkLeft.performed += ctx => OnActionPressed?.Invoke("WalkLeftD");
+        controls.Player.WalkDown.performed += ctx => OnActionPressed?.Invoke("WalkDownD");
+        controls.Player.WalkRight.performed += ctx => OnActionPressed?.Invoke("WalkRightD");
+        controls.Player.WalkUp.canceled += ctx => OnActionPressed?.Invoke("WalkUpC");
+        controls.Player.WalkLeft.canceled += ctx => OnActionPressed?.Invoke("WalkLeftC");
+        controls.Player.WalkDown.canceled += ctx => OnActionPressed?.Invoke("WalkDownC");
+        controls.Player.WalkRight.canceled += ctx => OnActionPressed?.Invoke("WalkRightC");
     }
 
     private void OnEnable() => controls.Enable();
