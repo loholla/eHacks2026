@@ -15,11 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Minigames/ShootTheTarget.unity
     guid: 5c5cda577ea004740b1d09b550b5466c
   - enabled: 1
-    path: Assets/Scenes/Minigames/CatchTheAnswer.unity
-    guid: 30e1f7561d54ce74e9badaec306ce82b
-  - enabled: 0
-    path: Assets/Scenes/Minigames/MiniGame_Test3.unity
-    guid: 41f25e89df0edec488ebc6b8c8a8cc93
+    path: Assets/Minigames/WordScramble/WordScramble.unity
+    guid: 5489bcd2b0f238d4caf77a6b89bba940
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: eae11736fa6838643bf40e33f3880f96, type: 3}
   m_UseUCBPForAssetBundles: 0
