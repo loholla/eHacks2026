@@ -13,13 +13,20 @@ MonoBehaviour:
   m_Name: TestDeck
   m_EditorClassIdentifier: Assembly-CSharp::Decks
   flashcards:
-  - word: "\u306D\u3053"
-    definition: Cat
-  - word: "\u306F\u3044"
-    definition: Yes
-  - word: "\u3044\u3044\u3048"
-    definition: No
-  - word: "\u3044\u305F\u3060\u304D\u307E\u3059"
-    definition: I Humbly Recieve
-  - word: "\u3059\u3054\u3044"
-    definition: Amazing!
+  - word: int
+    definition: A variable type that stores whole numbers
+  - word: string
+    definition: A variable type that stores words or lines of text
+  - word: char
+    definition: A variable type that stores a single character
+  - word: bool
+    definition: A variable type that stores true or false values
+  - word: float
+    definition: A variable type that stores decimal numbers at a short length
+  - word: double
+    definition: A variable type that stores decimals at a long length
+  - word: IF
+    definition: A statement that executes certain code when its statement is true
+  - word: ELSE
+    definition: The second part of an IF statement. Executes a certain block of code
+      when the statement is false
