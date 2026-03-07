@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   minigameScenes:
-  - QuickMatch
+  - WordScramble
   currentMinigame: 
   speedMultipler: 1
   playerHealth: 3
@@ -936,6 +936,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
+  m_Depth: -2
   m_Depth: -2
   m_CullingMask:
     serializedVersion: 2
