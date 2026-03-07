@@ -8,8 +8,10 @@ public class MiniGame_Test : Minigame
     private GameObject greenCube;
     private bool mouseClick = false;
 
-    void Start()
+    protected override void Start()
     {
+        //Calls parent start function
+        base.Start();
         SpawnGrid();
     }
     private void OnEnable()
@@ -36,8 +38,11 @@ public class MiniGame_Test : Minigame
         }
     }
 
-    void Update()
+    protected override void Update()
     {
+        //Calls parent update function
+        base.Update();
+
         if (mouseClick)
         {
             mouseClick = false;
