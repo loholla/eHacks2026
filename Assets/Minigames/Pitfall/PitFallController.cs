@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEditor.Rendering;
 using Unity.Collections;
 
-public class PitFallController : MonoBehaviour
+public class PitFallController : Minigame
 {
     public Decks deck;
     private List<FlashCard> currentDeck;
@@ -33,8 +33,9 @@ public class PitFallController : MonoBehaviour
     [SerializeField] private GameObject answer8Floor;
     [SerializeField] private GameObject ground;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         currentDeck = deck.flashcards;
         int deckSize = currentDeck.Count;
         for (int i = 0; i < 8; i++)
@@ -73,8 +74,6 @@ public class PitFallController : MonoBehaviour
                 rightAnswer = i;
             }
         }
-
-        Invoke("removePlatforms", 16f);
     }
 
     int randomNum(int deckSize, List<int> usedNums)
@@ -108,5 +107,29 @@ public class PitFallController : MonoBehaviour
                 floors[i].SetActive(false);
             }    
         }
+        Invoke("wincon", 5f);
+    }
+
+    void wincon()
+    {
+        if (winning)
+        {
+            WonGame();
+        } else
+        {
+            LostGame();
+        }
+    }
+
+    bool winning = true;
+    void OnTriggerExit()
+    {
+        winning = false;
+    }
+
+    public override void Timeout()
+    {
+        Debug.Log("Timer Expired");
+        removePlatforms();
     }
 }
