@@ -165,6 +165,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   minigameScenes:
   - MiniGame_Test
+  - MiniGame_Test2
+  - MiniGame_Test3
   currentMinigame: 
   speedMultipler: 1
   playerHealth: 3
