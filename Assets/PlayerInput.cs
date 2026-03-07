@@ -109,6 +109,42 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WalkUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""d9237092-d03d-47cb-b138-5dca833bf0fc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WalkLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""82a1b2b5-8737-488e-b35c-ace24229bfc3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WalkDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""4970d6ef-46f5-4b04-9554-0eeb2621aae9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WalkRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""1eaa5666-9837-4ab6-9a2f-2ca9e0aa89cc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -133,6 +169,50 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""RightClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9c20862a-6612-4e95-86b5-4e308f282abc"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WalkUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1afb0edc-6cb5-4921-8789-3d786ecea361"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WalkLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""67f638aa-7543-4815-95bc-0679ad39a97c"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WalkDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""270e979e-ca08-4710-96fc-74fb95e4af97"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WalkRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +223,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_LeftClick = m_Player.FindAction("LeftClick", throwIfNotFound: true);
         m_Player_RightClick = m_Player.FindAction("RightClick", throwIfNotFound: true);
+        m_Player_WalkUp = m_Player.FindAction("WalkUp", throwIfNotFound: true);
+        m_Player_WalkLeft = m_Player.FindAction("WalkLeft", throwIfNotFound: true);
+        m_Player_WalkDown = m_Player.FindAction("WalkDown", throwIfNotFound: true);
+        m_Player_WalkRight = m_Player.FindAction("WalkRight", throwIfNotFound: true);
     }
 
     ~@PlayerInput()
@@ -225,6 +309,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_LeftClick;
     private readonly InputAction m_Player_RightClick;
+    private readonly InputAction m_Player_WalkUp;
+    private readonly InputAction m_Player_WalkLeft;
+    private readonly InputAction m_Player_WalkDown;
+    private readonly InputAction m_Player_WalkRight;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -244,6 +332,22 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/RightClick".
         /// </summary>
         public InputAction @RightClick => m_Wrapper.m_Player_RightClick;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/WalkUp".
+        /// </summary>
+        public InputAction @WalkUp => m_Wrapper.m_Player_WalkUp;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/WalkLeft".
+        /// </summary>
+        public InputAction @WalkLeft => m_Wrapper.m_Player_WalkLeft;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/WalkDown".
+        /// </summary>
+        public InputAction @WalkDown => m_Wrapper.m_Player_WalkDown;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/WalkRight".
+        /// </summary>
+        public InputAction @WalkRight => m_Wrapper.m_Player_WalkRight;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -276,6 +380,18 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @RightClick.started += instance.OnRightClick;
             @RightClick.performed += instance.OnRightClick;
             @RightClick.canceled += instance.OnRightClick;
+            @WalkUp.started += instance.OnWalkUp;
+            @WalkUp.performed += instance.OnWalkUp;
+            @WalkUp.canceled += instance.OnWalkUp;
+            @WalkLeft.started += instance.OnWalkLeft;
+            @WalkLeft.performed += instance.OnWalkLeft;
+            @WalkLeft.canceled += instance.OnWalkLeft;
+            @WalkDown.started += instance.OnWalkDown;
+            @WalkDown.performed += instance.OnWalkDown;
+            @WalkDown.canceled += instance.OnWalkDown;
+            @WalkRight.started += instance.OnWalkRight;
+            @WalkRight.performed += instance.OnWalkRight;
+            @WalkRight.canceled += instance.OnWalkRight;
         }
 
         /// <summary>
@@ -293,6 +409,18 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @RightClick.started -= instance.OnRightClick;
             @RightClick.performed -= instance.OnRightClick;
             @RightClick.canceled -= instance.OnRightClick;
+            @WalkUp.started -= instance.OnWalkUp;
+            @WalkUp.performed -= instance.OnWalkUp;
+            @WalkUp.canceled -= instance.OnWalkUp;
+            @WalkLeft.started -= instance.OnWalkLeft;
+            @WalkLeft.performed -= instance.OnWalkLeft;
+            @WalkLeft.canceled -= instance.OnWalkLeft;
+            @WalkDown.started -= instance.OnWalkDown;
+            @WalkDown.performed -= instance.OnWalkDown;
+            @WalkDown.canceled -= instance.OnWalkDown;
+            @WalkRight.started -= instance.OnWalkRight;
+            @WalkRight.performed -= instance.OnWalkRight;
+            @WalkRight.canceled -= instance.OnWalkRight;
         }
 
         /// <summary>
@@ -347,5 +475,33 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRightClick(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "WalkUp" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnWalkUp(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "WalkLeft" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnWalkLeft(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "WalkDown" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnWalkDown(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "WalkRight" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnWalkRight(InputAction.CallbackContext context);
     }
 }
