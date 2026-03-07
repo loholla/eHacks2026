@@ -347,8 +347,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9509716a177274387894af854b36e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiniGame_Test
-  baseScore: 100
+  baseScore: 3000
   calculatedScore: 100
+  scoreLosePerSecound: 150
   cubePrefab: {fileID: 3857210257092041762, guid: 09c557e918d87bc4b930f0df2de3a046, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -166,7 +166,7 @@ MonoBehaviour:
   minigameScenes:
   - MiniGame_Test
   currentMinigame: 
-  speedMultipler: 0
+  speedMultipler: 1
   playerHealth: 3
   playerScore: 0
 --- !u!1 &737459807

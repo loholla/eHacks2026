@@ -3,16 +3,25 @@ using UnityEngine;
 
 public class Minigame : MonoBehaviour
 {
-    [SerializeField] protected int baseScore = 100;
-    [SerializeField] protected int calculatedScore = 100;
+    [SerializeField] protected int baseScore = 3000;
+    [SerializeField] protected int calculatedScore;
+    [SerializeField] private int scoreLosePerSecound = 150;
     
     protected bool gameEnded = false;
     private TimerManager timer;
 
-    void Start()
+    protected virtual void Start()
     {
+        calculatedScore = baseScore;
         timer = GetComponentInChildren<TimerManager>();
         Debug.Log("Starting Minigame");
+    }
+
+    protected virtual void Update()
+    {
+        //Calculates score
+        calculatedScore -= (int)(Time.deltaTime * scoreLosePerSecound * GameManager.Instance.speedMultipler);
+        Debug.Log(calculatedScore);
     }
 
     public void WonGame()

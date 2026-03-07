@@ -36,7 +36,7 @@ public class TimerManager : MonoBehaviour
         }
 
         timerBar.value = currentTime / StartingTime;
-        currentTime -= Time.deltaTime;
+        currentTime -= Time.deltaTime * speedMultiplier;
 
         if (currentTime <= 0f)
         {
