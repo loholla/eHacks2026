@@ -104,7 +104,7 @@ public class PitFallController : Minigame
         {
             if (i != rightAnswer)
             {
-                floors[i].SetActive(false);
+                Destroy(floors[i]);
             }    
         }
         Invoke("wincon", 5f);
