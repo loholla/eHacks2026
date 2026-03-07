@@ -16,7 +16,7 @@ public class astroid : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        speed = Random.Range(minSpeed, maxSpeed);
+        speed = Random.Range(minSpeed, maxSpeed) * GameManager.Instance.speedMultipler;
 
         manager = FindAnyObjectByType<AstroidManager>();
     }
