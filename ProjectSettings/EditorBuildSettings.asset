@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Minigames/Pitfall/Pitfall.unity
     guid: e795ddfe9dfd171418450fb0c917281a
+  - enabled: 1
+    path: Assets/Minigames/Astroids/Astroids.unity
+    guid: a10eb38f036055040a1557c959d0c544
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: eae11736fa6838643bf40e33f3880f96, type: 3}
   m_UseUCBPForAssetBundles: 0
