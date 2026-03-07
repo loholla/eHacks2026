@@ -33,5 +33,3 @@ MonoBehaviour:
     definition: a storage location in memory that is represented by a name.
   - word: Byte
     definition: 8 bits
-  - word: Byte
-    definition: 8 bits
