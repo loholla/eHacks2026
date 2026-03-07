@@ -743,7 +743,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1709321294}
-  - component: {fileID: 1709321293}
+  - component: {fileID: 1709321295}
   m_Layer: 0
   m_Name: Minigame_Root
   m_TagString: Untagged
@@ -751,20 +751,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1709321293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1709321292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f12e711bcf2df24f822eb2042c03ed0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Minigame
-  baseScore: 100
-  calculatedScore: 100
 --- !u!4 &1709321294
 Transform:
   m_ObjectHideFlags: 0
@@ -781,6 +767,21 @@ Transform:
   - {fileID: 1106348549}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1709321295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709321292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f9509716a177274387894af854b36e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MiniGame_Test
+  baseScore: 100
+  calculatedScore: 100
+  cubePrefab: {fileID: 3857210257092041762, guid: 09c557e918d87bc4b930f0df2de3a046, type: 3}
 --- !u!1 &2141130842
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,6 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    [SerializeField] float delay = 1.5f;
 
     [Header("Mini Game Information")]
     public List<string> minigameScenes;
