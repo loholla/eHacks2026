@@ -25,8 +25,13 @@ MonoBehaviour:
     definition: A variable type that stores decimal numbers at a short length
   - word: double
     definition: A variable type that stores decimals at a long length
-  - word: IF
+  - word: IF Statement
     definition: A statement that executes certain code when its statement is true
-  - word: ELSE
-    definition: The second part of an IF statement. Executes a certain block of code
-      when the statement is false
+  - word: Variable
+    definition: a storage location in memory that is represented by a name.
+  - word: Variable
+    definition: a storage location in memory that is represented by a name.
+  - word: Byte
+    definition: 8 bits
+  - word: Byte
+    definition: 8 bits
