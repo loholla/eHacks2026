@@ -9,7 +9,7 @@ public class CatchTheAnswer : Minigame
     private float xPos;
     private int correctAnswerDroppedRecently = 0;
     [SerializeField] private GameObject player;
-    public float moveSpeed = 7.5f;
+    public float moveSpeed = 15f;
     private bool movingLeft = false;
     private bool movingRight = false;
 
@@ -94,6 +94,7 @@ public class CatchTheAnswer : Minigame
         xPos = Random.Range(-15f, 15f);
         Vector3 spawnPos = new Vector3(xPos, 20f, 0f);
         AnswerBlock ablock = Instantiate(answerBlockPrefab, spawnPos, Quaternion.identity, transform).GetComponent<AnswerBlock>();
+        ablock.Init(this);
 
         ablock.isCorrect = Random.Range(0f, 1f) > 0.75f;
 

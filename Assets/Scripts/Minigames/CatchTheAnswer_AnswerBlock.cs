@@ -14,12 +14,19 @@ public class AnswerBlock : MonoBehaviour
         cta = game;
     }
 
-    void OnTriggerEnter(Collider coll)
+    private void OnTriggerEnter(Collider coll)
     {
+        Debug.Log("Made Contact with collider: " + coll);
         if (coll.CompareTag("Player"))
         {
-            cta?.OnAnswerBlockHit(this);
-            Destroy(gameObject);
+            if (isCorrect)
+            {
+                cta.WonGame();
+            }
+            else
+            {
+                cta.LostGame();
+            }
         }
     }
 
