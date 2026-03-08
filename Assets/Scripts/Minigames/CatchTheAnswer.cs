@@ -143,7 +143,7 @@ public class CatchTheAnswer : Minigame
 
         ablock.GetComponent<MeshRenderer>().material.color = Color.black;
 
-        ablock.isCorrect = Random.Range(0f, 1f) > 0.75f;
+        ablock.isCorrect = Random.Range(0f, 1f) > 0.65f;
 
         if (ablock.isCorrect && correctAnswerDroppedRecently == 0)
         {
