@@ -76,6 +76,11 @@ public class PitFallController : Minigame
         }
     }
 
+    protected override void Update()
+    {
+        
+    }
+
     int randomNum(int deckSize, List<int> usedNums)
     {
         List<int> allNums = new List<int>();
