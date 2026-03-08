@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TransitionScene.unity
     guid: 83533be860c7a6e4ab49ff3c93f4cbda
   - enabled: 1
-    path: Assets/Scenes/Minigames/MiniGame_Test.unity
-    guid: 5c5cda577ea004740b1d09b550b5466c
-  - enabled: 1
     path: Assets/Minigames/WordScramble/WordScramble.unity
     guid: 5489bcd2b0f238d4caf77a6b89bba940
   - enabled: 1
@@ -26,6 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Minigames/QuickMatch/QuickMatch.unity
     guid: 21530f336ea18d147a526a04d1c13545
+  - enabled: 1
+    path: Assets/Scenes/Minigames/CatchTheAnswer.unity
+    guid: 82581f0f36c92104fbb958dbbc06ac13
+  - enabled: 1
+    path: Assets/Scenes/Minigames/ShootTheTarget.unity
+    guid: 9b832ce01953d8045b4c8327239e2584
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: eae11736fa6838643bf40e33f3880f96, type: 3}
   m_UseUCBPForAssetBundles: 0
