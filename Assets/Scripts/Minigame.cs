@@ -1,14 +1,13 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class Minigame : MonoBehaviour
 {
     [SerializeField] protected int baseScore = 3000;
     [SerializeField] protected int calculatedScore;
-    [SerializeField] private int scoreLosePerSecound = 250;
-
-    
+    [SerializeField] private int scoreLosePerSecound = 250;  
     
     public bool gameEnded = false;
     private TimerManager timer;
@@ -63,5 +62,4 @@ public class Minigame : MonoBehaviour
         LostGame();
     }
 
-    
 }

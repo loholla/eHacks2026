@@ -1,6 +1,5 @@
-using Unity.Collections;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class AnswerBlock : MonoBehaviour
 {
@@ -8,7 +7,7 @@ public class AnswerBlock : MonoBehaviour
     public static float destroyObjectBound = 1f;
     public float movespeed = 5f;
     private CatchTheAnswer cta;
-
+    public TextMeshProUGUI answerText;
     public void Init(CatchTheAnswer game)
     {
         cta = game;
@@ -21,10 +20,13 @@ public class AnswerBlock : MonoBehaviour
         {
             if (isCorrect)
             {
+                cta.question.SetText("CORRECT!");
                 cta.WonGame();
             }
             else
             {
+
+                cta.question.SetText("INCORRECT!");
                 cta.LostGame();
             }
         }

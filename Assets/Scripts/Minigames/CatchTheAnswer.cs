@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class CatchTheAnswer : Minigame
@@ -11,8 +14,49 @@ public class CatchTheAnswer : Minigame
     private bool movingLeft = false;
     private bool movingRight = false;
 
+    [SerializeField] public FlashCard prompt;
+    public Decks Deck;
+    private List<FlashCard> currentDeck;   
 
-    
+    int ans, counter;
+
+    public TextMeshProUGUI question;
+
+    protected override void Start()
+    {
+        base.Start();
+
+        currentDeck = Deck.flashcards;
+
+        ans = (int)Mathf.Abs(Random.Range(0f, currentDeck.Count - 1));
+        counter = 0;
+        
+        foreach (var card in currentDeck)
+        {
+            if (counter == ans)
+            {
+                prompt = card;
+                counter++;
+            }
+            else
+            {
+                counter++;
+            }
+        }
+
+        currentDeck.RemoveAt(ans);
+
+        question.SetText(prompt.definition);
+
+        Invoke("DropBlockDelay", 0.5f);
+    }
+    protected override void Update()
+    {
+        base.Update();
+        HandleMovement();
+
+    }
+
     private void OnEnable()
     {
         if (PlayerManager.Instance != null)
@@ -27,7 +71,8 @@ public class CatchTheAnswer : Minigame
         {
             PlayerManager.Instance.OnActionPressed -= HandleAction;
         }
-    }
+    } 
+    
 
     void HandleAction(string actionName)
     {
@@ -73,19 +118,6 @@ public class CatchTheAnswer : Minigame
         player.transform.position += moveDir;
     }
 
-    protected override void Update()
-    {
-        base.Update();
-        HandleMovement();
-
-    }
-
-    protected override void Start()
-    {
-        base.Start();
-        Invoke("DropBlockDelay", 0.5f);
-    }
-
     void DropBlockDelay()
     {
         if (gameEnded) 
@@ -105,20 +137,23 @@ public class CatchTheAnswer : Minigame
         }
 
         xPos = Random.Range(-15f, 15f);
-        Vector3 spawnPos = new Vector3(xPos, 20f, 0f);
+        Vector3 spawnPos = new Vector3(xPos, 18f, 0f);
         AnswerBlock ablock = Instantiate(answerBlockPrefab, spawnPos, Quaternion.identity, transform).GetComponent<AnswerBlock>();
         ablock.Init(this);
+
+        ablock.GetComponent<MeshRenderer>().material.color = Color.black;
 
         ablock.isCorrect = Random.Range(0f, 1f) > 0.75f;
 
         if (ablock.isCorrect && correctAnswerDroppedRecently == 0)
         {
-            ablock.GetComponent<MeshRenderer>().material.color = Color.green;
+            ablock.answerText.SetText(prompt.word);
             correctAnswerDroppedRecently = 5;
         }
         else
         {
-            ablock.GetComponent<MeshRenderer>().material.color = Color.red;
+            ans = (int)Mathf.Abs(Random.Range(0f, currentDeck.Count - 1));
+            ablock.answerText.SetText(currentDeck[ans].word);
         }
 
         if (correctAnswerDroppedRecently > 0)
