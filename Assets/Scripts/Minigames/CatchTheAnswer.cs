@@ -1,14 +1,81 @@
 using UnityEngine;
 
 
+
 public class CatchTheAnswer : Minigame
 {
     public GameObject answerBlockPrefab;
     private float dropDelay = 1f;
     private float xPos;
     private int correctAnswerDroppedRecently = 0;
-    
+    [SerializeField] private GameObject player;
+    public float moveSpeed = 7.5f;
+    private bool movingLeft = false;
+    private bool movingRight = false;
 
+
+    
+    private void OnEnable()
+    {
+        if (PlayerManager.Instance != null)
+        {
+            PlayerManager.Instance.OnActionPressed += HandleAction;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (PlayerManager.Instance != null)
+        {
+            PlayerManager.Instance.OnActionPressed -= HandleAction;
+        }
+    }
+
+    void HandleAction(string actionName)
+    {
+        switch (actionName)
+        {
+            case "WalkLeftD":
+                Debug.Log("Moving Left");
+                movingLeft = true;
+                break;
+            case "WalkLeftC":
+                Debug.Log("Not Moving Left");
+                movingLeft = false;
+                break;
+            case "WalkRightD":
+                Debug.Log("Moving Right");
+                movingRight = true;
+                break;
+            case "WalkRightC":
+                Debug.Log("Not Moving Right");
+                movingRight = false;
+                break;
+        }
+    }
+
+    void HandleMovement()
+    {
+        Vector3 moveDir = Vector3.zero;
+
+        if (movingLeft && !movingRight)
+        {
+            moveDir.x -= Time.deltaTime * moveSpeed;
+        }
+        else if (movingRight && !movingLeft)
+        {
+            moveDir.x += Time.deltaTime * moveSpeed;
+        }
+        
+        player.transform.position += moveDir;
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        HandleMovement();
+
+    }
 
     protected override void Start()
     {
