@@ -97,7 +97,8 @@ public class WordScrambleManager : Minigame
             mainText.transform.position = new Vector3(mainText.transform.position.x, mainText.transform.position.y, 2);
             for(int i = buttonList.Count - 1; i >= 0; i--)
             {
-                Destroy(buttonList[i].gameObject);
+                if (buttonList[i].gameObject != null) Destroy(buttonList[i].gameObject);
+
             }
             LostGame();
         }
