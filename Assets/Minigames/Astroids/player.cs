@@ -15,6 +15,8 @@ public class player : MonoBehaviour
 
     [SerializeField] Transform bulletSpawnSpot;
 
+    [SerializeField] GameObject astroidManager;
+
     
     private bool walkLeft = false;
     
@@ -97,6 +99,6 @@ public class player : MonoBehaviour
 
     private void FireBullet()
     {
-        Instantiate(bulletPrefab, bulletSpawnSpot.position, Quaternion.identity,transform);
+        Instantiate(bulletPrefab, bulletSpawnSpot.position, Quaternion.identity, astroidManager.transform);
     }
 }
