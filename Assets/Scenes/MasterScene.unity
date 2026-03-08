@@ -165,6 +165,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   minigameScenes:
   - CatchTheAnswer
+  - Atroids
+  - QuickMatch
+  - WordScramble
   currentMinigame: 
   speedMultipler: 1
   playerHealth: 3
