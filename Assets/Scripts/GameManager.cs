@@ -81,11 +81,11 @@ public class GameManager : MonoBehaviour
         else
         {
             DamagePlayer(1);
-            if (playerHealth == 0)
-            {
-                GameOver();
-                return;
-            }
+            //if (playerHealth == 0)
+            //{
+            //    //GameOver(); Transition Controller now handles this
+            //    return;
+            //}
         }
 
         if (!string.IsNullOrEmpty(currentMinigame))
@@ -99,9 +99,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("TransitionScene", LoadSceneMode.Additive);
     }
 
-    public async void GameOver()
+    public void GameOver()
     {
         // Go to game over and leader board scene
+        SceneManager.LoadScene("GameOver");
     }
 
 }
