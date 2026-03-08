@@ -97,6 +97,6 @@ public class player : MonoBehaviour
 
     private void FireBullet()
     {
-        Instantiate(bulletPrefab, bulletSpawnSpot.position, Quaternion.identity);
+        Instantiate(bulletPrefab, bulletSpawnSpot.position, Quaternion.identity,transform);
     }
 }
