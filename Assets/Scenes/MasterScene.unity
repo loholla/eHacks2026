@@ -164,16 +164,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   minigameScenes:
-  - QuickMatch
-  - Astroids
   - Pitfall
-  - WordScramble
-  - CatchTheAnswer
-  - ShootTheTarget
   currentMinigame: 
   speedMultipler: 1
   playerHealth: 3
   playerScore: 0
+  lostAHeartThisRound: 0
 --- !u!1 &737459807
 GameObject:
   m_ObjectHideFlags: 0

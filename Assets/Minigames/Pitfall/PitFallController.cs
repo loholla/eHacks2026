@@ -78,7 +78,7 @@ public class PitFallController : Minigame
 
     protected override void Update()
     {
-        
+        //Debug.Log(winning);
     }
 
     int randomNum(int deckSize, List<int> usedNums)
