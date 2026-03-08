@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "StudyWare.slnx"
+    "dotnet.defaultSolution": "eHacks2026.slnx"
 }
