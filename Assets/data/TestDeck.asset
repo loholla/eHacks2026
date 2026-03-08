@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
@@ -33,3 +34,42 @@ MonoBehaviour:
     definition: a storage location in memory that is represented by a name.
   - word: Byte
     definition: 8 bits
+=======
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a3384184b0b9b4caf609b50076a438, type: 3}
+  m_Name: TestDeck
+  m_EditorClassIdentifier: Assembly-CSharp::Decks
+  flashcards:
+  - word: int
+    definition: A variable type that stores whole numbers
+  - word: string
+    definition: A variable type that stores words or lines of text
+  - word: char
+    definition: A variable type that stores a single character
+  - word: bool
+    definition: A variable type that stores true or false values
+  - word: float
+    definition: A variable type that stores decimal numbers at a short length
+  - word: double
+    definition: A variable type that stores decimals at a long length
+  - word: IF Statement
+    definition: A statement that executes certain code when its statement is true
+  - word: Variable
+    definition: a storage location in memory that is represented by a name.
+  - word: Variable
+    definition: a storage location in memory that is represented by a name.
+  - word: Byte
+    definition: 8 bits
+  - word: Byte
+    definition: 8 bits
+>>>>>>> 1af5204 (feat:Quick update)

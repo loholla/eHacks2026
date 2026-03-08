@@ -1707,12 +1707,13 @@ MonoBehaviour:
   numberOfSegments: 3
   MinXPosition: -250
   MaxXPosition: 250
-  MinYPosition: 65
-  MaxYPosition: -95
+  MinYPosition: -95
+  MaxYPosition: 20
   MinXNoZone: -250
   MaxXNoZone: 250
   MinYNoZone: -50
   MaxYNoZone: 50
+  buttonList: []
 --- !u!4 &971843860
 Transform:
   m_ObjectHideFlags: 0
