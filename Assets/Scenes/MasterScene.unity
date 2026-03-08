@@ -165,10 +165,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   minigameScenes:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - CatchTheAnswer
 =======
   - Astroids
 >>>>>>> 67141f0bb157d219d9a5132280d49aece39b7ad3
+=======
+  - Pitfall
+>>>>>>> main
   currentMinigame: 
   speedMultipler: 1
   playerHealth: 3
@@ -269,7 +273,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 767242471}
-  - {fileID: 1020871490}
   m_Father: {fileID: 1220184564}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -492,6 +495,7 @@ Transform:
   - {fileID: 806930035}
   - {fileID: 1427039976}
   - {fileID: 1233662113}
+  - {fileID: 737459811}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1233662111
