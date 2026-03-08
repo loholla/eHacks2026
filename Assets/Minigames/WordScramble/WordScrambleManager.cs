@@ -84,7 +84,7 @@ public class WordScrambleManager : Minigame
     public void OnButtonClick(string segment, GameObject button)
     {
 
-        Destroy(button);
+        
         reconstructedString += segment;
 
         wordDisplay.text = reconstructedString;
@@ -101,15 +101,18 @@ public class WordScrambleManager : Minigame
 
             }
             LostGame();
+            return;
         }
 
         if(reconstructedString == mainCard.word)
         {
+            Destroy(button);
             mainText.text = $"Good Job!";
             WonGame();
+            return;
         }
 
-        
+        Destroy(button);
     }
 
 }
