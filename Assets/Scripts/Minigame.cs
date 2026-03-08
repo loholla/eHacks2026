@@ -22,7 +22,7 @@ public class Minigame : MonoBehaviour
     protected virtual void Update()
     {
         if (gameEnded) return;
-        calculatedScore -= (int)(Time.deltaTime * scoreLosePerSecound * GameManager.Instance.speedMultipler);
+        calculatedScore -= (int)(Time.deltaTime * scoreLosePerSecound * GameManager.Instance.speedMultiplier);
     }
 
     public void WonGame()
