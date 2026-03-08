@@ -586,7 +586,7 @@ Transform:
   m_GameObject: {fileID: 373203958}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.0131, y: 1, z: 0}
+  m_LocalPosition: {x: 11.2, y: 1, z: 0}
   m_LocalScale: {x: 13.0265, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -990,7 +990,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: 0}
+  m_AnchoredPosition: {x: -80.9, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &872217903
@@ -1127,7 +1127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 0}
+  m_AnchoredPosition: {x: 88.4, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1172561253
@@ -1302,6 +1302,7 @@ MonoBehaviour:
   baseScore: 3000
   calculatedScore: 0
   scoreLosePerSecound: 250
+  gameEnded: 0
   deck: {fileID: 11400000, guid: 5263ede29bcd47340aa85b6270cb8834, type: 2}
   Question: {fileID: 287462772}
   Answer1: {fileID: 1172561254}
@@ -1539,6 +1540,7 @@ MonoBehaviour:
   baseScore: 3000
   calculatedScore: 0
   scoreLosePerSecound: 250
+  gameEnded: 0
   deck: {fileID: 11400000, guid: 5263ede29bcd47340aa85b6270cb8834, type: 2}
   Question: {fileID: 287462772}
   Answer1: {fileID: 1172561254}
@@ -1667,7 +1669,7 @@ Transform:
   m_GameObject: {fileID: 1553779593}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.3816, y: 1, z: 0}
+  m_LocalPosition: {x: -10.4, y: 1, z: 0}
   m_LocalScale: {x: 11.7635, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
