@@ -50,6 +50,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Minigames/WordScramble/WordScramble.unity
     guid: 5489bcd2b0f238d4caf77a6b89bba940
+  - enabled: 1
+    path: Assets/Minigames/Pitfall/Pitfall.unity
+    guid: e795ddfe9dfd171418450fb0c917281a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: eae11736fa6838643bf40e33f3880f96, type: 3}
   m_UseUCBPForAssetBundles: 0
