@@ -1,7 +1,5 @@
 using UnityEngine;
 
-
-
 public class CatchTheAnswer : Minigame
 {
     public GameObject answerBlockPrefab;
@@ -9,7 +7,7 @@ public class CatchTheAnswer : Minigame
     private float xPos;
     private int correctAnswerDroppedRecently = 0;
     [SerializeField] private GameObject player;
-    public float moveSpeed = 15f;
+    [SerializeField] private float moveSpeed;
     private bool movingLeft = false;
     private bool movingRight = false;
 
@@ -56,6 +54,11 @@ public class CatchTheAnswer : Minigame
 
     void HandleMovement()
     {
+        if (gameEnded)
+        {
+            return;
+        }
+
         Vector3 moveDir = Vector3.zero;
 
         if (movingLeft && !movingRight)
@@ -85,12 +88,22 @@ public class CatchTheAnswer : Minigame
 
     void DropBlockDelay()
     {
+        if (gameEnded) 
+        {
+            return;
+        }
+
         dropDelay = Random.Range(0.33f, 0.75f);
         Invoke("DropBlock", dropDelay);
     }
 
     void DropBlock()
     {
+        if (gameEnded) 
+        {
+            return;
+        }
+
         xPos = Random.Range(-15f, 15f);
         Vector3 spawnPos = new Vector3(xPos, 20f, 0f);
         AnswerBlock ablock = Instantiate(answerBlockPrefab, spawnPos, Quaternion.identity, transform).GetComponent<AnswerBlock>();

@@ -1,6 +1,6 @@
 using UnityEngine;
-using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Minigame : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class Minigame : MonoBehaviour
 
     
     
-    protected bool gameEnded = false;
+    public bool gameEnded = false;
     private TimerManager timer;
 
     protected virtual void Start()
@@ -22,9 +22,8 @@ public class Minigame : MonoBehaviour
 
     protected virtual void Update()
     {
-        //Calculates score
+        if (gameEnded) return;
         calculatedScore -= (int)(Time.deltaTime * scoreLosePerSecound * GameManager.Instance.speedMultipler);
-        //Debug.Log(calculatedScore);
     }
 
     public void WonGame()
@@ -63,4 +62,6 @@ public class Minigame : MonoBehaviour
         Debug.Log("Timer Expired");
         LostGame();
     }
+
+    
 }

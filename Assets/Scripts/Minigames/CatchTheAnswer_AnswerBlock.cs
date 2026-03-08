@@ -32,6 +32,11 @@ public class AnswerBlock : MonoBehaviour
 
     void Update()
     {
+        if (cta.gameEnded)
+        {
+            return;
+        }
+        
         Vector3 movedir = new Vector3(0f, movespeed * Time.deltaTime, 0f);
         transform.position -= movedir;
 

@@ -362,12 +362,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354906563}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.74, z: -20}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 9.74, z: -0.79999995}
+  m_LocalScale: {x: 0.02, y: 1, z: 0.04}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1373273717}
+  m_Father: {fileID: 1849144752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1354906565
 MonoBehaviour:
@@ -503,7 +503,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 705537627}
-  - {fileID: 1354906564}
   - {fileID: 1849144752}
   - {fileID: 394167490}
   m_Father: {fileID: 0}
@@ -525,7 +524,7 @@ MonoBehaviour:
   scoreLosePerSecound: 250
   answerBlockPrefab: {fileID: 9002712958898131115, guid: 50ec6ce9ae67e5e4faaf22e7aabd74db, type: 3}
   player: {fileID: 394167489}
-  moveSpeed: 5
+  moveSpeed: 15
 --- !u!1 &1849144751
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +556,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 50, y: 1, z: 25}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1354906564}
   m_Father: {fileID: 1373273717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1849144753
