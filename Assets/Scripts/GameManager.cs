@@ -1,7 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+<<<<<<< HEAD
 
+=======
+using System.Collections;
+using UnityEngine.SocialPlatforms.Impl;
+>>>>>>> main
 
 public class GameManager : MonoBehaviour
 {
@@ -89,9 +94,16 @@ public class GameManager : MonoBehaviour
         if (result)
         {
             AddScore(score);
+<<<<<<< HEAD
             if (speedMultiplier <= 2.0f)
             {
                 speedMultiplier += 0.1f;
+=======
+
+            if(speedMultipler < 2)
+            {
+                speedMultipler += .1f;
+>>>>>>> main
             }
         }
         else
@@ -113,7 +125,15 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         // Go to game over and leader board scene
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
+    }
+
+    public void ResetMy()
+    {
+        playerHealth = 3;
+        playerScore = 0;
+        speedMultipler = 1f;
+        Start();
     }
 
 }

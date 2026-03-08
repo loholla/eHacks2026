@@ -114,6 +114,8 @@ public class TransitionController : MonoBehaviour
         else // player is dead
         {
             GameManager.Instance.GameOver();
+
+            SceneManager.UnloadSceneAsync("TransitionScene");
         }
        
     }
