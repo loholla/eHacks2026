@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MiniGame_Test : Minigame
+public class ShootTheAnswer : Minigame
 {
     [SerializeField] private GameObject cubePrefab;
     private GameObject[,] cubes = new GameObject [2, 2];
@@ -98,7 +98,7 @@ public class MiniGame_Test : Minigame
                 }
 
                 cubes[i, j] = cube;
-            }
-        }
-    }
-}
+            } 
+        } 
+    } 
+} 

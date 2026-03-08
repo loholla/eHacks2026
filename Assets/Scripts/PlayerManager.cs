@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using System;
 
 public class PlayerManager : MonoBehaviour
@@ -27,8 +26,9 @@ public class PlayerManager : MonoBehaviour
 
         controls = new PlayerInput();
 
-        controls.Player.LeftClick.performed += ctx => OnActionPressed?.Invoke("LeftClick");
+        controls.Player.LeftClick.performed +=  ctx => OnActionPressed?.Invoke("LeftClick");
         controls.Player.RightClick.performed += ctx => OnActionPressed?.Invoke("RightClick");
+
     }
 
     private void OnEnable() => controls.Enable();

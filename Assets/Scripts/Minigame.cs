@@ -22,7 +22,6 @@ public class Minigame : MonoBehaviour
     {
         //Calculates score
         calculatedScore -= (int)(Time.deltaTime * scoreLosePerSecound * GameManager.Instance.speedMultipler);
-        Debug.Log(calculatedScore);
     }
 
     public void WonGame()
