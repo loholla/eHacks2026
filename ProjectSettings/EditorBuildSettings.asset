@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/ShootTheTarget.unity
     guid: 9b832ce01953d8045b4c8327239e2584
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 87e59ee8ba6bd7e489d14d9d53f9ad3b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: eae11736fa6838643bf40e33f3880f96, type: 3}
   m_UseUCBPForAssetBundles: 0
