@@ -1536,6 +1536,7 @@ MonoBehaviour:
   speed: 10
   bulletPrefab: {fileID: 8869332657189293938, guid: ce7caccf03b647947a850776a97fe8ca, type: 3}
   bulletSpawnSpot: {fileID: 2084131831}
+  astroidManager: {fileID: 1055633515}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

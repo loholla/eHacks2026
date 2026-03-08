@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public int playerHealth = 3;
     public int playerScore = 0;
 
+    //Flag so transition know you lost a heart
+    public bool lostAHeartThisRound;
+
     void Awake()
     {
         bool instanceHasBeenMade = Instance != null;
@@ -29,12 +32,17 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(transform.root.gameObject);
+
+       
     }
 
     void Start()
     {
         Debug.Log("Starting Game");
+        lostAHeartThisRound = false;
         SceneManager.LoadSceneAsync("TransitionScene", LoadSceneMode.Additive);
+
+        
     }
 
     public void AddScore(int amount)
@@ -45,6 +53,7 @@ public class GameManager : MonoBehaviour
     public void DamagePlayer(int amount)
     {
         playerHealth -= amount;
+        lostAHeartThisRound = true;
 
         if (playerHealth <= 0)
         {
