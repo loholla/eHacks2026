@@ -148,7 +148,7 @@ public class CatchTheAnswer : Minigame
         if (ablock.isCorrect && correctAnswerDroppedRecently == 0)
         {
             ablock.answerText.SetText(prompt.word);
-            correctAnswerDroppedRecently = 5;
+            correctAnswerDroppedRecently = 3;
         }
         else
         {
