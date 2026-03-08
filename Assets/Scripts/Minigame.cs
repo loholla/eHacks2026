@@ -1,16 +1,15 @@
 using UnityEngine;
-using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class Minigame : MonoBehaviour
 {
     [SerializeField] protected int baseScore = 3000;
     [SerializeField] protected int calculatedScore;
-    [SerializeField] private int scoreLosePerSecound = 250;
-
+    [SerializeField] private int scoreLosePerSecound = 250;  
     
-    
-    protected bool gameEnded = false;
+    public bool gameEnded = false;
     private TimerManager timer;
 
     protected virtual void Start()
@@ -22,9 +21,8 @@ public class Minigame : MonoBehaviour
 
     protected virtual void Update()
     {
-        //Calculates score
+        if (gameEnded) return;
         calculatedScore -= (int)(Time.deltaTime * scoreLosePerSecound * GameManager.Instance.speedMultipler);
-        //Debug.Log(calculatedScore);
     }
 
     public void WonGame()
@@ -63,4 +61,5 @@ public class Minigame : MonoBehaviour
         Debug.Log("Timer Expired");
         LostGame();
     }
+
 }

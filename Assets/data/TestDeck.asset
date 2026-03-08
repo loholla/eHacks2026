@@ -29,7 +29,62 @@ MonoBehaviour:
     definition: A statement that executes certain code when its statement is true
   - word: Variable
     definition: a storage location in memory that is represented by a name.
-  - word: Variable
-    definition: a storage location in memory that is represented by a name.
   - word: Byte
     definition: 8 bits
+  - word: JS
+    definition: JavaScript
+  - word: HTML
+    definition: Hyper-Text Markup Language
+  - word: CSS
+    definition: Cascading Style Sheet
+  - word: HTTP
+    definition: Hyper-Text Transfer Protocol
+  - word: HTTPS
+    definition: Hyper-Text Transfer Protocol Secure
+  - word: Function
+    definition: A reusable block of code that performs a specific task when called
+  - word: Method
+    definition: A function that belongs to a class or object
+  - word: Class
+    definition: A blueprint for creating objects that contain variables and methods
+  - word: Struct
+    definition: A datastructure that groups multiple related variables together
+  - word: File Extension
+    definition: The letters at the end of a file name that indicate the file type
+  - word: Inheritance
+    definition: A programming feature where a class can receive variables and methods
+      from another class
+  - word: Array
+    definition: A variable that stores multiple values in an ordered list
+  - word: Loop
+    definition: A structure that repeats code multiple times
+  - word: For Loop
+    definition: A loop that repeats code a specific number of times
+  - word: While Loop
+    definition: A loop that repeats while a condition is true
+  - word: Parameter
+    definition: A value passed into a function
+  - word: Return
+    definition: A statement that sends a value back from a function
+  - word: Object
+    definition: A collection of related variables and methods
+  - word: API
+    definition: A set of rules that allows programs to communicate
+  - word: Compiler
+    definition: A program that converts code into machine language
+  - word: IDE
+    definition: Software used to write and test code
+  - word: Bug
+    definition: An error in a program
+  - word: Algorithm
+    definition: A step-by-step procedure for solving a problem
+  - word: Debugging
+    definition: The process of finding and fixing bugs
+  - word: Syntax
+    definition: The rules that define how code must be written
+  - word: Library
+    definition: A collection of reusable code
+  - word: Framework
+    definition: A structure that provides tools for building applications
+  - word: Comment
+    definition: Text in code that is ignored by the program
