@@ -2,7 +2,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
+//using UnityEditor.Rendering;
 using Unity.Collections;
 
 public class PitFallController : Minigame
