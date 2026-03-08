@@ -2,7 +2,7 @@ using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerMove_Pitfall : MonoBehaviour
+public class PlayerMove_Pitfall : Minigame
 {
     private bool walkUp = false;
     private bool walkLeft = false;
@@ -46,7 +46,7 @@ public class PlayerMove_Pitfall : MonoBehaviour
         }
     }
 
-    void Update()
+    protected override void Update()
     {
         Vector3 direction = Vector3.zero;
         if (walkUp)
