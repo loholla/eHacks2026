@@ -15,7 +15,7 @@ public class TimerManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        speedMultiplier = GameManager.Instance.speedMultipler;
+        speedMultiplier = GameManager.Instance.speedMultiplier;
         currentTime = StartingTime;
         minigame = GetComponentInParent<Minigame>();
 
@@ -42,10 +42,6 @@ public class TimerManager : MonoBehaviour
         {
             TimeExpired();
         } 
-        else if (currentTime < StartingTime * 0.25f)
-        {
-            //Call the you lose function
-        }
     }
 
     void TimeExpired()

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-using System.Collections;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Mini Game Information")]
     public List<string> minigameScenes;
-    [SerializeField] private string currentMinigame;
-    public float speedMultipler = 1f;
+    public string currentMinigame;
+    public float speedMultiplier = 1f;
 
     [Header("Player Stats")]
     public int playerHealth = 3;
@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     //Flag so transition know you lost a heart
     public bool lostAHeartThisRound;
+
+    private Queue<int> previousScenes = new Queue<int>();
 
     void Awake()
     {
@@ -31,8 +33,7 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(transform.root.gameObject);
-
+        DontDestroyOnLoad(transform.root.gameObject);      
        
     }
 
@@ -40,9 +41,8 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Starting Game");
         lostAHeartThisRound = false;
-        SceneManager.LoadSceneAsync("TransitionScene", LoadSceneMode.Additive);
-
         
+        Invoke("StartNextMiniGame", 0.1f);
     }
 
     public void AddScore(int amount)
@@ -64,11 +64,23 @@ public class GameManager : MonoBehaviour
     public async void StartNextMiniGame()
     {
         int index = Random.Range(0, minigameScenes.Count);
-        currentMinigame = minigameScenes[index];
 
+        while (previousScenes.Contains(index))
+        {
+            index = Random.Range(0, minigameScenes.Count);
+        }
+
+        previousScenes.Enqueue(index);
+        if (previousScenes.Count > 3)
+        {
+            previousScenes.Dequeue();
+        }
+
+        currentMinigame = minigameScenes[index];
+        
         Debug.Log("Loading minigame: " + currentMinigame);
 
-        await SceneManager.LoadSceneAsync(currentMinigame, LoadSceneMode.Additive);
+        await SceneManager.LoadSceneAsync("TransitionScene", LoadSceneMode.Additive);
     }
 
     public async void EndMinigame(bool result, int score)
@@ -77,15 +89,14 @@ public class GameManager : MonoBehaviour
         if (result)
         {
             AddScore(score);
+            if (speedMultiplier <= 2.0f)
+            {
+                speedMultiplier += 0.1f;
+            }
         }
         else
         {
             DamagePlayer(1);
-            //if (playerHealth == 0)
-            //{
-            //    //GameOver(); Transition Controller now handles this
-            //    return;
-            //}
         }
 
         if (!string.IsNullOrEmpty(currentMinigame))
@@ -96,7 +107,7 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Minigame ended");
 
-        SceneManager.LoadScene("TransitionScene", LoadSceneMode.Additive);
+        Invoke("StartNextMiniGame", 0.1f);
     }
 
     public void GameOver()

@@ -1,17 +1,46 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ShootTheAnswer : Minigame
+public class ShootTheTarget : Minigame
 {
     [SerializeField] private GameObject cubePrefab;
     private GameObject[,] cubes = new GameObject [2, 2];
     private GameObject greenCube;
+    [SerializeField] private Camera cam;
     private bool mouseClick = false;
+
+    [SerializeField] public FlashCard prompt;
+    public Decks Deck;
+    private List<FlashCard> currentDeck;
+    public TextMeshProUGUI question;
+    int ans, counter;
 
     protected override void Start()
     {
-        //Calls parent start function
         base.Start();
+
+        currentDeck = Deck.flashcards;
+        ans = (int)Mathf.Abs(Random.Range(0f, currentDeck.Count - 1));
+        counter = 0;
+        
+        foreach (var card in currentDeck)
+        {
+            if (counter == ans)
+            {
+                prompt = card;
+                counter++;
+            }
+            else
+            {
+                counter++;
+            }
+        }
+
+        currentDeck.RemoveAt(ans);
+        question.SetText(prompt.definition);
+
         SpawnGrid();
     }
     private void OnEnable()
@@ -53,7 +82,7 @@ public class ShootTheAnswer : Minigame
     private void CheckShot()
     {
         Vector2 mousePos = Mouse.current.position.ReadValue();
-        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+        Ray ray = cam.ScreenPointToRay(mousePos);
         if (Physics.Raycast(ray, out RaycastHit hit, 100f))
         {
             if (hit.collider.gameObject == greenCube)
@@ -71,8 +100,8 @@ public class ShootTheAnswer : Minigame
 
     void SpawnGrid()
     {
-        float spacing = 1.5f;
-        Vector3 center = Camera.main.transform.position + Camera.main.transform.forward * 5f;
+        float spacing = 2f;
+        Vector3 center = cam.transform.position + cam.transform.forward * 5f;
 
         int greenX = Random.Range(0,2);
         int greenY = Random.Range(0,2);
@@ -83,18 +112,18 @@ public class ShootTheAnswer : Minigame
             {
                 Vector3 pos = center + new Vector3((i - 0.5f) * spacing, (j - 0.5f) * spacing, 0);
                 GameObject cube = Instantiate(cubePrefab, pos, Quaternion.identity, transform);
-                cube.transform.localScale = Vector3.one;
+                cube.GetComponent<Renderer>().material.color = Color.black;
 
                 if (i == greenX && j == greenY)
-
                 {
-                    cube.GetComponent<Renderer>().material.color = Color.green;
                     greenCube = cube;
+                    greenCube.GetComponentInChildren<TextMeshProUGUI>().SetText(prompt.word);
+
                 }
                 else
                 {
-
-                    cube.GetComponent<Renderer>().material.color = Color.red;
+                    ans = (int)Mathf.Abs(Random.Range(0f, currentDeck.Count - 1));
+                    cube.GetComponentInChildren<TextMeshProUGUI>().SetText(currentDeck[ans].word);
                 }
 
                 cubes[i, j] = cube;

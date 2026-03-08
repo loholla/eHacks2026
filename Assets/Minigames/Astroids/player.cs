@@ -94,7 +94,7 @@ public class player : MonoBehaviour
             playerDirection = 0;
         }
 
-        transform.position += new Vector3(playerDirection * speed * Time.deltaTime * GameManager.Instance.speedMultipler, 0, 0);
+        transform.position += new Vector3(playerDirection * speed * Time.deltaTime * GameManager.Instance.speedMultiplier, 0, 0);
     }
 
     private void FireBullet()

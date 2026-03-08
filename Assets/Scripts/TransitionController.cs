@@ -1,17 +1,16 @@
 using System.Collections;
-using System.Threading.Tasks;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
+
 
 public class TransitionController : MonoBehaviour
 {
-    [SerializeField] float delay = 2f;
+    [SerializeField] float delay = 3.5f;
     [SerializeField] Sprite threeHearts, twoHearts, oneHeart;
     [SerializeField] SpriteRenderer heartImage;
-    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI scoreText, miniGameName, miniGameTip;
 
     [SerializeField] private Animator animator;
 
@@ -22,7 +21,35 @@ public class TransitionController : MonoBehaviour
     {
         Debug.Log("Transition started");
 
-        scoreText.text = GameManager.Instance.playerScore.ToString();
+        switch (GameManager.Instance.currentMinigame)
+        {
+            case "ShootTheTarget":
+                miniGameName.SetText("Shoot The Target!");
+                miniGameTip.SetText("Left-click to select your answer!");
+                break;
+            case "Astroids":
+                miniGameName.SetText("Asteroids!");
+                miniGameTip.SetText("Use the A and D keys and Left-Click to fire!");
+                break;
+            case "Pitfall":
+                miniGameName.SetText("Pitfall");
+                miniGameTip.SetText("Use the WASD keys and get to a platform before time runs out!");
+                break;
+            case "WordScramble":
+                miniGameName.SetText("Word Scramble!");
+                miniGameTip.SetText("Use Left-Click to build a word!");
+                break;
+            case "CatchTheAnswer":
+                miniGameName.SetText("Catch The Answer!");
+                miniGameTip.SetText("Left-click to select your answer");
+                break;
+            case "QuickMatch":
+                miniGameName.SetText("Quick Match!");
+                miniGameTip.SetText("Use Left-Click to match word and definition together!");
+                break;
+        }
+
+        scoreText.text = "Your Score: " + GameManager.Instance.playerScore.ToString();
 
         bool lostAHeart = GameManager.Instance.lostAHeartThisRound;
 
@@ -80,7 +107,7 @@ public class TransitionController : MonoBehaviour
 
         if (GameManager.Instance.playerHealth > 0)
         {
-            GameManager.Instance.StartNextMiniGame();
+            SceneManager.LoadSceneAsync(GameManager.Instance.currentMinigame, LoadSceneMode.Additive);
 
             SceneManager.UnloadSceneAsync("TransitionScene");
         }
