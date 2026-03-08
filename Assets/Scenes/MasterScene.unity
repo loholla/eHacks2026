@@ -164,13 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   minigameScenes:
-<<<<<<< HEAD
-  - Astroids
-  - QuickMatch
-  - WordScramble
-=======
   - CatchTheAnswer
->>>>>>> 73859d3b38dd6628d736fbcf4142e4b0975381b7
   currentMinigame: 
   speedMultipler: 1
   playerHealth: 3
